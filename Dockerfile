@@ -9,7 +9,7 @@ RUN apt-get update; \
 
 # Must install protoc directly as latest package is only on 3.12
 RUN wget -O protobuf_src.tar.gz https://github.com/protocolbuffers/protobuf/releases/download/v21.1/protobuf-python-4.21.1.tar.gz && \
-    tar xvf protobuf_src.tar.gz && \
+    tar xvf protobuf_src.tar.gz --no-same-owner && \
     cd protobuf-3.21.1 && \
     ./configure --prefix=/usr && \
     make -j$(nproc) install && \
